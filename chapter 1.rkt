@@ -14,3 +14,12 @@
 ;(pair? '(atom turkey or)) #t
 
 ;pg 4
+;'(atom turkey) or ; no
+;'((atom turkey) or) ; yes
+;'xyz ; yes
+;'(x y z) ; yes
+;'((x y) z) ; yes
+;'(how are you doing so far) ; yes
+;'(how are you doing so far) ; 6
+;'(((how) are) ((you)(doing so)) far) ; yes
+'(((how) are) ((you)(doing so)) far) ; 3
