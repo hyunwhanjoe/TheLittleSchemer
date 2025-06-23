@@ -32,3 +32,13 @@
 ;(car '((a b c) x y z)) ;(a b c)
 ;(car 'hotdog) ; no answer
 ;(car '()) ; no answer
+
+;pg 6
+;(car '(((hotdogs)) (and) (pickle) relish)) ;((hotdogs))
+;(car '(((hotdogs)) (and) (pickle) relish)) ;((hotdogs))
+;(car (car '(((hotdogs)) (and)))) ;(hotdogs)
+;(cdr '(a b c)) ;(b c)
+;(cdr '((a b c) x y z)) ;(x y z)
+;(cdr '(hamburger)) ;()
+;(cdr '((x) t r)) ;(t r)
+;(cdr 'hotdogs) ;no answer
