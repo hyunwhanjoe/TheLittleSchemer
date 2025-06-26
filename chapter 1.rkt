@@ -59,3 +59,10 @@
 ;(cons 'a '()) ;(a)
 ;(cons '((a b c)) 'b) ;no answer
 ;(cons 'a 'b) ;no answer
+
+;pg 9
+;(cons 'a '((b) c d)) ;(a (b) c d)
+;(cons 'a (cdr  '((b) c d))) ;(a c d)
+;(null? '()) ;#t
+;(null? (quote ())) ;#t
+;(null? '(a b c)) ;#f
