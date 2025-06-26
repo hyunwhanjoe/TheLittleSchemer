@@ -42,3 +42,10 @@
 ;(cdr '(hamburger)) ;()
 ;(cdr '((x) t r)) ;(t r)
 ;(cdr 'hotdogs) ;no answer
+
+;pg 7
+;(cdr '()) ;no answer
+;(car (cdr '((b) (x y) ((c))))) ;(x y)
+;(cdr (cdr '((b) (x y) ((c))))) ;(((c)))
+;(cdr (car '(a (b (c)) d))) ;no answer
+;(cons 'peanut '(butter jelly)) ;(peanut butter jelly)
