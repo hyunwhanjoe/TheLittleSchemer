@@ -49,3 +49,13 @@
 ;(cdr (cdr '((b) (x y) ((c))))) ;(((c)))
 ;(cdr (car '(a (b (c)) d))) ;no answer
 ;(cons 'peanut '(butter jelly)) ;(peanut butter jelly)
+
+;pg 8
+;(cons '(banana and) '(peanut butter and jelly))
+;((banana and) peanut butter and jelly)
+;(cons '((help) this) '(is very ((hard) to learn)))
+;(((help) this) is very ((hard) to learn))
+;(cons '(a b (c)) '()) ;((a b (c)))
+;(cons 'a '()) ;(a)
+;(cons '((a b c)) 'b) ;no answer
+;(cons 'a 'b) ;no answer
