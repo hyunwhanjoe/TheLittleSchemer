@@ -58,11 +58,18 @@
 ;(cons '(a b (c)) '()) ;((a b (c)))
 ;(cons 'a '()) ;(a)
 ;(cons '((a b c)) 'b) ;no answer
-;(cons 'a 'b) ;no answer
+;(cons 'a 'b) ;no answer 'b isn't a list
 
 ;pg 9
-;(cons 'a '((b) c d)) ;(a (b) c d)
+;(cons 'a (car '((b) c d))) ;(a b)
+;(car '((b) c d)) ;(b)
 ;(cons 'a (cdr  '((b) c d))) ;(a c d)
+; (cdr  '((b) c d)) ;(c d)
 ;(null? '()) ;#t
 ;(null? (quote ())) ;#t
 ;(null? '(a b c)) ;#f
+
+;pg 10
+;(null? 'a) ;no answer
+;(atom? 'Harry) ;#t
+;(atom? '(Harry had a heap of apples)) ;#f
