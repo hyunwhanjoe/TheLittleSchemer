@@ -64,7 +64,7 @@
 ;(cons 'a (car '((b) c d))) ;(a b)
 ;(car '((b) c d)) ;(b)
 ;(cons 'a (cdr  '((b) c d))) ;(a c d)
-; (cdr  '((b) c d)) ;(c d)
+;(cdr  '((b) c d)) ;(c d)
 ;(null? '()) ;#t
 ;(null? (quote ())) ;#t
 ;(null? '(a b c)) ;#f
@@ -73,3 +73,12 @@
 ;(null? 'a) ;no answer
 ;(atom? 'Harry) ;#t
 ;(atom? '(Harry had a heap of apples)) ;#f
+
+;pg 11
+;(atom? (car '(Harry had a heap of apples))) ;#t
+;(atom? (cdr '(Harry had a heap of apples))) ;#f
+;(atom? (cdr '(Harry)))
+;(atom? (car (cdr '(swing low sweet cherry oat)))) ;#t
+;(atom? (car (cdr '(swing (low sweet) cherry oat)))) ;f
+;(eq? 'Harry 'Harry) ;#t
+;(eq? 'margarine 'butter) ;#f
