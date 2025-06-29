@@ -82,3 +82,13 @@
 ;(atom? (car (cdr '(swing (low sweet) cherry oat)))) ;f
 ;(eq? 'Harry 'Harry) ;#t
 ;(eq? 'margarine 'butter) ;#f
+
+;pg 12
+;(eq? '() '(strawberry)) ;no answer
+;(eq? 6 7) ;no answer
+;(eq?  (car '(Mary had a little lamb chop)) 'Mary) ;#t
+;(eq? (cdr '(soured milk)) 'milk) ;#f
+
+;pg 13
+;(define l '(beans beans we need jelly beans))
+;(eq? (car l) (car (cdr l))) ;#t
