@@ -19,4 +19,10 @@
 ;(lat? '()) ;#t
 
 ;pg 16
-(lat? '(bacon and eggs)) ;#t
+;(define l '(bacon and eggs))
+;(lat? l) ;#t
+;(null? l) ;#f
+
+;pg 19
+(define l '(bacon (and eggs)))
+(lat? l) ;#f
