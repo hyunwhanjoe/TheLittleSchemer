@@ -40,6 +40,9 @@
       (else (or (eq? (car lat) a)
                 (member? a (cdr lat)))))))
 ;pg 22
-(member? 'tea '(coffee tea or milk)) ;True
-(member? 'poached '(fried eggs and scrambled eggs)) ;False
-(member? 'meat '(mashed potatoes and meat gravy)) ;#t
+;(member? 'tea '(coffee tea or milk)) ;True
+;(member? 'poached '(fried eggs and scrambled eggs)) ;False
+;(member? 'meat '(mashed potatoes and meat gravy)) ;#t
+
+;pg 28
+(member? 'liver '(bagels and lox)) ;#f
