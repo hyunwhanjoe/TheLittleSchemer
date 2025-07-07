@@ -10,3 +10,15 @@
 ;(define lat '(coffee cup tea cup and hick cup))
 ;(rember 'cup lat) ;(coffee tea cup and hick cup)
 
+;pg 34
+(define rember
+  (lambda (a lat)
+    (cond
+      ((null? lat) (quote ()))
+      (else (cond
+              ((eq? (car lat) a) (cdr lat))
+              (else (rember a
+                            (cdr lat))))))))
+
+(define lat '(bacon lettuce and tomato))
+(rember 'bacon lat) ;(lettuce and tomato)
