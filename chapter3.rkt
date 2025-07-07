@@ -20,5 +20,9 @@
               (else (rember a
                             (cdr lat))))))))
 
+;(define lat '(bacon lettuce and tomato))
+;(rember 'bacon lat) ;(lettuce and tomato)
+
+;pg 35
 (define lat '(bacon lettuce and tomato))
-(rember 'bacon lat) ;(lettuce and tomato)
+(rember 'and lat) ;(lettuce and tomato) ;(tomato)
