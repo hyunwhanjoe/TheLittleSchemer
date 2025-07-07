@@ -11,18 +11,31 @@
 ;(rember 'cup lat) ;(coffee tea cup and hick cup)
 
 ;pg 34
+;(define rember
+;  (lambda (a lat)
+;    (cond
+;      ((null? lat) (quote ()))
+;      (else (cond
+;              ((eq? (car lat) a) (cdr lat))
+;              (else (rember a
+;                            (cdr lat))))))))
+
+;(define lat '(bacon lettuce and tomato))
+;(rember 'bacon lat) ;(lettuce and tomato)
+
+;pg 35
+;(define lat '(bacon lettuce and tomato))
+;(rember 'and lat) ;(tomato)
+
+;pg 37
 (define rember
   (lambda (a lat)
     (cond
       ((null? lat) (quote ()))
       (else (cond
               ((eq? (car lat) a) (cdr lat))
-              (else (rember a
-                            (cdr lat))))))))
+              (else (cons (car lat)
+                          (rember a (cdr lat)))))))))
 
-;(define lat '(bacon lettuce and tomato))
-;(rember 'bacon lat) ;(lettuce and tomato)
-
-;pg 35
 (define lat '(bacon lettuce and tomato))
-(rember 'and lat) ;(lettuce and tomato) ;(tomato)
+(rember 'and lat) ;(bacon lettuce tomato)
