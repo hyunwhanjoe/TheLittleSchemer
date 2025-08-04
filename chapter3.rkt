@@ -52,5 +52,34 @@
 ;(rember 'and lat) ;(bacon lettuce tomato)
 
 ;pg 42
-(define lat '(soy sauce and tomato sauce))
-(rember 'sauce lat) ;(soy and tomato sauce)
+;(define lat '(soy sauce and tomato sauce))
+;(rember 'sauce lat) ;(soy and tomato sauce)
+
+;pg 43
+;(define l '((apple peach pumpkin)
+;            (plum pear cherry)
+;            (grape raisin pea)
+;            (bean carrot eggplant)))
+;(first l) ;(apple plum grape bean)
+
+;(define l '((a b) (c d) (e f)))
+;(firsts l) ;(a c e)
+
+;(firsts '()) ;()
+
+;(define l '((five plums)
+;            (four)
+;            (eleven green oranges)))
+;(firsts l) ;(five four eleven)
+
+;(define l '(((five plums) four)
+;           (eleven green oranges)
+;           ((no) more)))
+(firsts l) ;((five plums) eleven (no))
+
+(define firsts
+  (lambda (l)
+    (cond
+      ((null? l) '())
+      (else (cons (car (car l))
+                  (firsts (cdr l)))))))
