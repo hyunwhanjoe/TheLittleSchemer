@@ -28,14 +28,29 @@
 ;(rember 'and lat) ;(tomato)
 
 ;pg 37
+;(define rember
+;  (lambda (a lat)
+;    (cond
+;      ((null? lat) (quote ()))
+;      (else (cond
+;              ((eq? (car lat) a) (cdr lat))
+;              (else (cons (car lat)
+;                          (rember a (cdr lat)))
+;                    ))))))
+
+;(define lat '(bacon lettuce and tomato))
+;(rember 'and lat) ;(bacon lettuce tomato)
+
+;pg 41
 (define rember
   (lambda (a lat)
     (cond
       ((null? lat) (quote ()))
-      (else (cond
-              ((eq? (car lat) a) (cdr lat))
-              (else (cons (car lat)
-                          (rember a (cdr lat)))))))))
+      ((eq? (car lat) a) (cdr lat))
+      (else (cons (car lat)
+                  (rember a (cdr lat)))))))
+;(rember 'and lat) ;(bacon lettuce tomato)
 
-(define lat '(bacon lettuce and tomato))
-(rember 'and lat) ;(bacon lettuce tomato)
+;pg 42
+(define lat '(soy sauce and tomato sauce))
+(rember 'sauce lat) ;(soy and tomato sauce)
