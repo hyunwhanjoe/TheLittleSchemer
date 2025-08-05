@@ -77,14 +77,37 @@
 ;           ((no) more)))
 ;(firsts l) ;((five plums) eleven (no))
 
-(define firsts
-  (lambda (l)
-    (cond
-      ((null? l) '())
-      (else (cons (car (car l))
-                  (firsts (cdr l)))
-            ))))
+;(define firsts
+;  (lambda (l)
+;    (cond
+;      ((null? l) '())
+;      (else (cons (car (car l))
+;                  (firsts (cdr l)))
+;            ))))
+;
+;; pg 47
+;(define l '((a b) (c d) (e f)))
+;(firsts l) ;(a c e)
 
-; pg 47
-(define l '((a b) (c d) (e f)))
-(firsts l) ;(a c e)
+(define insertR
+  (lambda (new old lat)
+    (cond
+      ((null? lat) '())
+      ((eq? old (car lat))
+       (cons (car lat)
+             (cons new (cdr lat))))
+      (else (cons (car lat)
+                  (insertR new old (cdr lat)))))))   
+
+;(define lat '(ice cream with fudge for dessert))
+;(insertR 'topping 'fudge lat)
+;(ice cream with fudge topping for dessert)
+
+;(define lat '(tacos tamales and salsa))
+;(insertR 'jalapeno 'and lat)
+;;(tacos tamales and jalapeno salsa)
+
+;pg 48
+(define lat '(a b c d f g d h))
+(insertR 'e 'd lat)
+;(a b c d e f g d h)
