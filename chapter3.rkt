@@ -42,13 +42,13 @@
 ;(rember 'and lat) ;(bacon lettuce tomato)
 
 ;pg 41
-(define rember
-  (lambda (a lat)
-    (cond
-      ((null? lat) (quote ()))
-      ((eq? (car lat) a) (cdr lat))
-      (else (cons (car lat)
-                  (rember a (cdr lat)))))))
+;(define rember
+;  (lambda (a lat)
+;    (cond
+;      ((null? lat) (quote ()))
+;      ((eq? (car lat) a) (cdr lat))
+;      (else (cons (car lat)
+;                  (rember a (cdr lat)))))))
 ;(rember 'and lat) ;(bacon lettuce tomato)
 
 ;pg 42
@@ -75,11 +75,16 @@
 ;(define l '(((five plums) four)
 ;           (eleven green oranges)
 ;           ((no) more)))
-(firsts l) ;((five plums) eleven (no))
+;(firsts l) ;((five plums) eleven (no))
 
 (define firsts
   (lambda (l)
     (cond
       ((null? l) '())
       (else (cons (car (car l))
-                  (firsts (cdr l)))))))
+                  (firsts (cdr l)))
+            ))))
+
+; pg 47
+(define l '((a b) (c d) (e f)))
+(firsts l) ;(a c e)
