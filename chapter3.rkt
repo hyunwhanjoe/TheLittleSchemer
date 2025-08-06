@@ -89,15 +89,15 @@
 ;(define l '((a b) (c d) (e f)))
 ;(firsts l) ;(a c e)
 
-(define insertR
-  (lambda (new old lat)
-    (cond
-      ((null? lat) '())
-      ((eq? old (car lat))
-       (cons (car lat)
-             (cons new (cdr lat))))
-      (else (cons (car lat)
-                  (insertR new old (cdr lat)))))))   
+;(define insertR
+;  (lambda (new old lat)
+;    (cond
+;      ((null? lat) '())
+;      ((eq? old (car lat))
+;       (cons (car lat) ;old
+;             (cons new (cdr lat))))
+;      (else (cons (car lat)
+;                  (insertR new old (cdr lat)))))))   
 
 ;(define lat '(ice cream with fudge for dessert))
 ;(insertR 'topping 'fudge lat)
@@ -108,6 +108,33 @@
 ;;(tacos tamales and jalapeno salsa)
 
 ;pg 48
-(define lat '(a b c d f g d h))
-(insertR 'e 'd lat)
+;(define lat '(a b c d f g d h))
+;(insertR 'e 'd lat)
 ;(a b c d e f g d h)
+
+;pg 51
+;(define insertL
+;  (lambda (new old lat)
+;    (cond
+;      ((null? lat) '())
+;      ((eq? old (car lat))
+;       (cons new lat))
+;      (else (cons (car lat)
+;                  (insertL new old (cdr lat)))))))
+;
+;(define lat '(I like cats))
+;(insertL 'really 'like lat)
+;;(I really like cats)
+
+(define subst
+  (lambda (new old lat)
+    (cond
+      ((null? lat) '())
+      ((eq? old (car lat))
+       (cons new (cdr lat)))
+      (else (cons (car lat)
+                  (subst new old (cdr lat)))))))
+
+(define lat '(ice cream with fudge for dessert))
+(subst 'topping 'fudge lat)
+;(ice cream with topping for dessert)
