@@ -126,15 +126,29 @@
 ;(insertL 'really 'like lat)
 ;;(I really like cats)
 
-(define subst
-  (lambda (new old lat)
+;(define subst
+;  (lambda (new old lat)
+;    (cond
+;      ((null? lat) '())
+;      ((eq? old (car lat))
+;       (cons new (cdr lat)))
+;      (else (cons (car lat)
+;                  (subst new old (cdr lat)))))))
+;
+;(define lat '(ice cream with fudge for dessert))
+;(subst 'topping 'fudge lat)
+;;(ice cream with topping for dessert)
+
+;pg 52
+(define subst2
+  (lambda (new o1 o2 lat)
     (cond
       ((null? lat) '())
-      ((eq? old (car lat))
-       (cons new (cdr lat)))
+      ((eq? o1 (car lat)) (cons new (cdr lat)))
+      ((eq? o2 (car lat)) (cons new (cdr lat)))
       (else (cons (car lat)
-                  (subst new old (cdr lat)))))))
+                  (subst2 new o1 o2 (cdr lat)))))))
 
-(define lat '(ice cream with fudge for dessert))
-(subst 'topping 'fudge lat)
-;(ice cream with topping for dessert)
+(define lat '(banana ice cream with chocolate topping))
+(subst2 'vanilla 'chocolate 'banana lat)
+;(vanilla ice cream with chocolate topping)
