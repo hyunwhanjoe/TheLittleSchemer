@@ -168,17 +168,48 @@
 ;;(coffee tea and hick)
 
 ;pg 56
-(define multiinsertR
+;(define multiinsertR
+;  (lambda (new old lat)
+;    (cond
+;      ((null? lat) '())
+;      ((eq? old (car lat))
+;       (cons (car lat)
+;             (cons new
+;                   (multiinsertR new old (cdr lat)))))
+;      (else (cons (car lat)
+;                  (multiinsertR new old (cdr lat)))))))
+;
+;(define lat '(a b c d f g d h))
+;(multiinsertR 'e 'd lat)
+;;(a b c d e f g d e h)
+
+;pg 57
+;(define multiinsertL
+;  (lambda (new old lat)
+;    (cond
+;      ((null? lat) '())
+;      ((eq? old (car lat))
+;       (cons new
+;             (cons old
+;                   (multiinsertL new old (cdr lat)))))
+;      (else (cons (car lat)
+;                  (multiinsertL new old (cdr lat))))
+;      )))
+;
+;(define lat '(chips and fish or fish and fried))
+;(multiinsertL 'fried 'fish lat)
+;;(chips and fried fish or fried fish and fried)
+
+(define multisubst
   (lambda (new old lat)
     (cond
       ((null? lat) '())
       ((eq? old (car lat))
-       (cons (car lat)
-             (cons new
-                   (multiinsertR new old (cdr lat)))))
+       (cons new
+             (multisubst new old (cdr lat))))
       (else (cons (car lat)
-                  (multiinsertR new old (cdr lat)))))))
+                  (multisubst new old (cdr lat)))))))
 
-(define lat '(a b c d f g d h))
-(multiinsertR 'e 'd lat)
-;(a b c d e f g d e h)
+(define lat '(I like small cats and large cats))
+(multisubst 'dogs 'cats lat)
+;(I like small dogs and large dogs)
