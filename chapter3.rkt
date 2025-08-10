@@ -140,15 +140,29 @@
 ;;(ice cream with topping for dessert)
 
 ;pg 52
-(define subst2
-  (lambda (new o1 o2 lat)
-    (cond
-      ((null? lat) '())
-      ((eq? o1 (car lat)) (cons new (cdr lat)))
-      ((eq? o2 (car lat)) (cons new (cdr lat)))
-      (else (cons (car lat)
-                  (subst2 new o1 o2 (cdr lat)))))))
+;(define subst2
+;  (lambda (new o1 o2 lat)
+;    (cond
+;      ((null? lat) '())
+;      ((eq? o1 (car lat)) (cons new (cdr lat))) ;or
+;      ((eq? o2 (car lat)) (cons new (cdr lat)))
+;      (else (cons (car lat)
+;                  (subst2 new o1 o2 (cdr lat)))))))
+;
+;(define lat '(banana ice cream with chocolate topping))
+;(subst2 'vanilla 'chocolate 'banana lat)
+;;(vanilla ice cream with chocolate topping)
 
-(define lat '(banana ice cream with chocolate topping))
-(subst2 'vanilla 'chocolate 'banana lat)
-;(vanilla ice cream with chocolate topping)
+;pg 53
+(define multirember
+  (lambda (a lat)
+    (cond
+      ((null? lat) (quote ()))
+      ((eq? (car lat) a) 
+            (multirember a (cdr lat)))
+      (else (cons (car lat)
+                  (multirember a (cdr lat)))))))
+
+(define lat '(coffee cup tea cup and hick cup))
+(multirember 'cup lat)
+;(coffee tea and hick)
