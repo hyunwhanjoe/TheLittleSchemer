@@ -154,15 +154,31 @@
 ;;(vanilla ice cream with chocolate topping)
 
 ;pg 53
-(define multirember
-  (lambda (a lat)
-    (cond
-      ((null? lat) (quote ()))
-      ((eq? (car lat) a) 
-            (multirember a (cdr lat)))
-      (else (cons (car lat)
-                  (multirember a (cdr lat)))))))
+;(define multirember
+;  (lambda (a lat)
+;    (cond
+;      ((null? lat) (quote ()))
+;      ((eq? (car lat) a) 
+;            (multirember a (cdr lat)))
+;      (else (cons (car lat)
+;                  (multirember a (cdr lat)))))))
+;
+;(define lat '(coffee cup tea cup and hick cup))
+;(multirember 'cup lat)
+;;(coffee tea and hick)
 
-(define lat '(coffee cup tea cup and hick cup))
-(multirember 'cup lat)
-;(coffee tea and hick)
+;pg 56
+(define multiinsertR
+  (lambda (new old lat)
+    (cond
+      ((null? lat) '())
+      ((eq? old (car lat))
+       (cons (car lat)
+             (cons new
+                   (multiinsertR new old (cdr lat)))))
+      (else (cons (car lat)
+                  (multiinsertR new old (cdr lat)))))))
+
+(define lat '(a b c d f g d h))
+(multiinsertR 'e 'd lat)
+;(a b c d e f g d e h)
