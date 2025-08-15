@@ -49,11 +49,20 @@
 ;(o- 18 25) ;-7
 
 ;pg 64
-(define addtup
-  (lambda (tup)
-    (cond
-      ((null? tup) 0)
-      (else (o+ (car tup) (addtup (cdr tup)))))))
+;(define addtup
+;  (lambda (tup)
+;    (cond
+;      ((null? tup) 0)
+;      (else (o+ (car tup) (addtup (cdr tup)))))))
+;
+;(addtup '(3 5 2 8)) ;18
+;(addtup '(15 6 7 12 3)) ;43
 
-(addtup '(3 5 2 8)) ;18
-(addtup '(15 6 7 12 3)) ;43
+(define x
+  (lambda (n m)
+    (cond
+      ((zero? m) 0)
+      (else (o+ n (x n (sub1 m)))))))
+
+(x 5 3) ;15
+(x 13 4) ;52
