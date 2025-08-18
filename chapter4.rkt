@@ -58,11 +58,34 @@
 ;(addtup '(3 5 2 8)) ;18
 ;(addtup '(15 6 7 12 3)) ;43
 
-(define x
-  (lambda (n m)
-    (cond
-      ((zero? m) 0)
-      (else (o+ n (x n (sub1 m)))))))
+;(define x
+;  (lambda (n m)
+;    (cond
+;      ((zero? m) 0)
+;      (else (o+ n (x n (sub1 m)))))))
 
-(x 5 3) ;15
-(x 13 4) ;52
+;(x 5 3) ;15
+;(x 13 4) ;52
+
+;pg 66
+;(x 12 3)
+
+;pg 67
+(define tup+
+  (lambda (tup1 tup2)
+    (cond
+      ((and (null? tup1) (null? tup2))
+       '())
+      (else
+       (cons (o+ (car tup1) (car tup2))
+             (tup+ (cdr tup1) (cdr tup2)))))))
+
+(define tup1 '(3 6 9 11 4))
+(define tup2 '(8 5 2 0 7))
+(tup+ tup1 tup2) ;(11 11 11 11 11)
+
+;pg 68
+(tup+ '(2 3) '(4 6)) ;(6 9)
+
+;pg 69
+(tup+ '(3 7) '(4 6)) ;(7 13)
