@@ -91,16 +91,30 @@
 ;(tup+ '(3 7) '(4 6)) ;(7 13)
 
 ;pg 70
-(define tup+
-  (lambda (tup1 tup2)
-    (cond
-      ((and (null? tup1) (null? tup2))
-       '()) ; unnecessary tup2 will be ()
-      ((null? tup1) tup2)
-      ((null? tup2) tup1)
-      (else
-       (cons (o+ (car tup1) (car tup2))
-             (tup+ (cdr tup1) (cdr tup2)))))))
+;(define tup+
+;  (lambda (tup1 tup2)
+;    (cond
+;      ((and (null? tup1) (null? tup2))
+;       '()) ; unnecessary tup2 will be ()
+;      ((null? tup1) tup2)
+;      ((null? tup2) tup1)
+;      (else
+;       (cons (o+ (car tup1) (car tup2))
+;             (tup+ (cdr tup1) (cdr tup2)))))))
+;
+;(tup+ '(3 7) '(4 6 8 1)) ;(7 13 8 1)
+;(tup+ '(3 7 8 1) '(4 6)) ;(7 13 8 1)
 
-(tup+ '(3 7) '(4 6 8 1)) ;(7 13 8 1)
-(tup+ '(3 7 8 1) '(4 6)) ;(7 13 8 1)
+;pg 71
+(define greater ;>
+  (lambda (n m)
+    (cond
+      ((zero? n) #f)
+      ((zero? m) #t)
+      (else (greater (sub1 n) (sub1 m))))))
+
+(greater 12 133) ;#f
+(greater 120 11) ;#t
+
+;pg 72
+(greater 3 3) ;#f
