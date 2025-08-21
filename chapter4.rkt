@@ -106,12 +106,12 @@
 ;(tup+ '(3 7 8 1) '(4 6)) ;(7 13 8 1)
 
 ;pg 71
-;(define greater ;>
-;  (lambda (n m)
-;    (cond
-;      ((zero? n) #f)
-;      ((zero? m) #t)
-;      (else (greater (sub1 n) (sub1 m))))))
+(define greater ;>
+  (lambda (n m)
+    (cond
+      ((zero? n) #f)
+      ((zero? m) #t)
+      (else (greater (sub1 n) (sub1 m))))))
 ;
 ;(greater 12 133) ;#f
 ;(greater 120 11) ;#t
@@ -126,7 +126,20 @@
       ((zero? m) #f)
       ((zero? n) #t)
       (else (lesser (sub1 n) (sub1 m))))))
+;
+;(lesser 4 6) ;#t
+;(lesser 8 3) ;#f
+;(lesser 6 6) ;#f
 
-(lesser 4 6) ;#t
-(lesser 8 3) ;#f
-(lesser 6 6) ;#f
+;pg 74
+(define eq
+  (lambda (n m)
+    (cond
+      ((greater n m) #f)
+      ((lesser n m) #f)
+      (else #t))))
+
+(eq 3 3) ;#t
+(eq 6 6) ;#t
+(eq 4 6) ;#f
+(eq 8 3) ;#f
