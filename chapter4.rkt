@@ -155,10 +155,23 @@
 ;(^ 5 3) ;125
 
 ;pg 75
-(define div
-  (lambda (n m)
-    (cond
-      ((< n m) 0)
-      (else (add1 (div (- n m) m))))))
+;(define div
+;  (lambda (n m)
+;    (cond
+;      ((< n m) 0)
+;      (else (add1 (div (- n m) m))))))
+;
+;(div 15 4)
 
-(div 15 4)
+;pg 76
+(define len
+  (lambda (lat)
+    (cond
+      ((null? lat) 0)
+      (else (add1 (len (cdr lat)))))))
+
+(define lat1 '(hotdogs with mustard sauerkraut and pickles))
+(len lat1) ;6
+
+(define lat2 '(ham and cheese on rye))
+(len lat2) ;5
