@@ -144,13 +144,21 @@
 ;(eq 4 6) ;#f
 ;(eq 8 3) ;#f
 
+;(define ^ ;expt
+;  (lambda (n m)
+;    (cond
+;      ((zero? m) 1)
+;      (else (x n (^ n (sub1 m)))))))
+;
+;(^ 1 1) ;1
+;(^ 2 3) ;8
+;(^ 5 3) ;125
 
-(define ^ ;expt
+;pg 75
+(define div
   (lambda (n m)
     (cond
-      ((zero? m) 1)
-      (else (x n (^ n (sub1 m)))))))
+      ((< n m) 0)
+      (else (add1 (div (- n m) m))))))
 
-(^ 1 1) ;1
-(^ 2 3) ;8
-(^ 5 3) ;125
+(div 15 4)
