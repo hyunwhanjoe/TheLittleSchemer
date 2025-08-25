@@ -58,11 +58,11 @@
 ;(addtup '(3 5 2 8)) ;18
 ;(addtup '(15 6 7 12 3)) ;43
 
-;(define x
-;  (lambda (n m)
-;    (cond
-;      ((zero? m) 0)
-;      (else (o+ n (x n (sub1 m)))))))
+(define x ;*
+  (lambda (n m)
+    (cond
+      ((zero? m) 0)
+      (else (o+ n (x n (sub1 m)))))))
 
 ;(x 5 3) ;15
 ;(x 13 4) ;52
@@ -106,12 +106,12 @@
 ;(tup+ '(3 7 8 1) '(4 6)) ;(7 13 8 1)
 
 ;pg 71
-(define greater ;>
-  (lambda (n m)
-    (cond
-      ((zero? n) #f)
-      ((zero? m) #t)
-      (else (greater (sub1 n) (sub1 m))))))
+;(define greater ;>
+;  (lambda (n m)
+;    (cond
+;      ((zero? n) #f)
+;      ((zero? m) #t)
+;      (else (greater (sub1 n) (sub1 m))))))
 ;
 ;(greater 12 133) ;#f
 ;(greater 120 11) ;#t
@@ -120,26 +120,37 @@
 ;(greater 3 3) ;#f
 
 ;pg 73
-(define lesser ;<
-  (lambda (n m)
-    (cond
-      ((zero? m) #f)
-      ((zero? n) #t)
-      (else (lesser (sub1 n) (sub1 m))))))
+;(define lesser ;<
+;  (lambda (n m)
+;    (cond
+;      ((zero? m) #f)
+;      ((zero? n) #t)
+;      (else (lesser (sub1 n) (sub1 m))))))
 ;
 ;(lesser 4 6) ;#t
 ;(lesser 8 3) ;#f
 ;(lesser 6 6) ;#f
 
 ;pg 74
-(define eq
+;(define eq
+;  (lambda (n m)
+;    (cond
+;      ((greater n m) #f)
+;      ((lesser n m) #f)
+;      (else #t))))
+;
+;(eq 3 3) ;#t
+;(eq 6 6) ;#t
+;(eq 4 6) ;#f
+;(eq 8 3) ;#f
+
+
+(define ^ ;expt
   (lambda (n m)
     (cond
-      ((greater n m) #f)
-      ((lesser n m) #f)
-      (else #t))))
+      ((zero? m) 1)
+      (else (x n (^ n (sub1 m)))))))
 
-(eq 3 3) ;#t
-(eq 6 6) ;#t
-(eq 4 6) ;#f
-(eq 8 3) ;#f
+(^ 1 1) ;1
+(^ 2 3) ;8
+(^ 5 3) ;125
