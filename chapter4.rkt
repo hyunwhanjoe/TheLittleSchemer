@@ -176,11 +176,23 @@
 ;(define lat2 '(ham and cheese on rye))
 ;(len lat2) ;5
 
-(define pick
+;(define pick
+;  (lambda (n lat)
+;    (cond
+;      ((zero? (sub1 n)) (car lat))
+;      (else (pick (sub1 n) (cdr lat))))))
+;
+;(define lat '(lasagna spaghetti ravioli macaroni meatball))
+;(pick 4 lat) ;macaroni
+
+;pg 77
+(define rempick
   (lambda (n lat)
     (cond
-      ((zero? (sub1 n)) (car lat))
-      (else (pick (sub1 n) (cdr lat))))))
+      ((zero? (sub1 n)) (cdr lat))
+      (else
+       (cons (car lat)
+             (rempick (sub1 n) (cdr lat)))))))
 
-(define lat '(lasagna spaghetti ravioli macaroni meatball))
-(pick 4 lat) ;macaroni
+(define lat '(hotdogs with hot mustard))
+(rempick 3 lat) ;(hotdogs with mustard)
