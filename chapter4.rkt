@@ -106,12 +106,12 @@
 ;(tup+ '(3 7 8 1) '(4 6)) ;(7 13 8 1)
 
 ;pg 71
-;(define greater ;>
-;  (lambda (n m)
-;    (cond
-;      ((zero? n) #f)
-;      ((zero? m) #t)
-;      (else (greater (sub1 n) (sub1 m))))))
+(define greater ;>
+  (lambda (n m)
+    (cond
+      ((zero? n) #f)
+      ((zero? m) #t)
+      (else (greater (sub1 n) (sub1 m))))))
 ;
 ;(greater 12 133) ;#f
 ;(greater 120 11) ;#t
@@ -120,24 +120,24 @@
 ;(greater 3 3) ;#f
 
 ;pg 73
-;(define lesser ;<
-;  (lambda (n m)
-;    (cond
-;      ((zero? m) #f)
-;      ((zero? n) #t)
-;      (else (lesser (sub1 n) (sub1 m))))))
+(define lesser ;<
+  (lambda (n m)
+    (cond
+      ((zero? m) #f)
+      ((zero? n) #t)
+      (else (lesser (sub1 n) (sub1 m))))))
 ;
 ;(lesser 4 6) ;#t
 ;(lesser 8 3) ;#f
 ;(lesser 6 6) ;#f
 
 ;pg 74
-;(define eq
-;  (lambda (n m)
-;    (cond
-;      ((greater n m) #f)
-;      ((lesser n m) #f)
-;      (else #t))))
+(define eq
+  (lambda (n m)
+    (cond
+      ((greater n m) #f)
+      ((lesser n m) #f)
+      (else #t))))
 ;
 ;(eq 3 3) ;#t
 ;(eq 6 6) ;#t
@@ -164,14 +164,23 @@
 ;(div 15 4)
 
 ;pg 76
-(define len
-  (lambda (lat)
+;(define len
+;  (lambda (lat)
+;    (cond
+;      ((null? lat) 0)
+;      (else (add1 (len (cdr lat)))))))
+;
+;(define lat1 '(hotdogs with mustard sauerkraut and pickles))
+;(len lat1) ;6
+;
+;(define lat2 '(ham and cheese on rye))
+;(len lat2) ;5
+
+(define pick
+  (lambda (n lat)
     (cond
-      ((null? lat) 0)
-      (else (add1 (len (cdr lat)))))))
+      ((zero? (sub1 n)) (car lat))
+      (else (pick (sub1 n) (cdr lat))))))
 
-(define lat1 '(hotdogs with mustard sauerkraut and pickles))
-(len lat1) ;6
-
-(define lat2 '(ham and cheese on rye))
-(len lat2) ;5
+(define lat '(lasagna spaghetti ravioli macaroni meatball))
+(pick 4 lat) ;macaroni
