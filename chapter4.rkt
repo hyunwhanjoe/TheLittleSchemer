@@ -186,13 +186,26 @@
 ;(pick 4 lat) ;macaroni
 
 ;pg 77
-(define rempick
-  (lambda (n lat)
-    (cond
-      ((zero? (sub1 n)) (cdr lat))
-      (else
-       (cons (car lat)
-             (rempick (sub1 n) (cdr lat)))))))
+;(define rempick
+;  (lambda (n lat)
+;    (cond
+;      ((zero? (sub1 n)) (cdr lat))
+;      (else (cons (car lat)
+;                  (rempick (sub1 n) (cdr lat)))))))
+;
+;(define lat '(hotdogs with hot mustard))
+;(rempick 3 lat) ;(hotdogs with mustard)
 
-(define lat '(hotdogs with hot mustard))
-(rempick 3 lat) ;(hotdogs with mustard)
+;(number? 'tomato) ;#f
+;(number? 76) ;#t
+
+(define no-nums
+  (lambda (lat)
+    (cond
+      ((null? lat) '())
+      ((number? (car lat)) (no-nums (cdr lat)))
+      (else (cons (car lat)
+                  (no-nums (cdr lat)))))))
+
+(define lat '(5 pears 6 prunes 9 dates))
+(no-nums lat) ;(pears prunes dates)
