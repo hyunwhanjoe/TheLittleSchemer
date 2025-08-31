@@ -220,22 +220,33 @@
 ;
 ;(all-nums lat) ;(5 6 9)
 
-(define eqan?
-  (lambda (a1 a2)
-    (cond
-      ((and (number? a1) (number? a2))
-       (eq a1 a2))
-      ((and (not (number? a1)) (not (number? a2))
-            (eq? a1 a2)))
-      (else #f))))
+;(define eqan?
+;  (lambda (a1 a2)
+;    (cond
+;      ((and (number? a1) (number? a2))
+;       (eq a1 a2))
+;      ((and (not (number? a1)) (not (number? a2)))
+;       (eq? a1 a2))
+;      (else #f))))
+;
+;(eqan? 5 5) ;#t
+;(eqan? 5 6) ;#f
+;(eqan? 6 5) ;#f
+;(eqan? 'hi 'hi) ;#t
+;(eqan? 'hi 'bye) ;#f
+;(eqan? 'hi 5) ;#f
+;(eqan? 5 'hi) ;#f
+;(eqan? 5 '5) ;#t
+;(eqan? 5 "5") ;#f
+;(eqan? "5" 5) ;#f
 
-(eqan? 5 5) ;#t
-(eqan? 5 6) ;#f
-(eqan? 6 5) ;#f
-(eqan? 'hi 'hi) ;#t
-(eqan? 'hi 'bye) ;#f
-(eqan? 'hi 5) ;#f
-(eqan? 5 'hi) ;#f
-(eqan? 5 '5) ;#t
-(eqan? 5 "5") ;#f
-(eqan? "5" 5) ;#f
+(define occur
+  (lambda (a lat)
+    (cond
+      ((null? lat) 0)
+      ((eq? a (car lat))
+       (add1 (occur a (cdr lat))))
+      (else (occur a (cdr lat))))))
+
+(define lat '(hi bye hi))
+(occur 'hi lat) ;2
