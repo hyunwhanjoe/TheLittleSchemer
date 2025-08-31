@@ -199,25 +199,43 @@
 ;(number? 'tomato) ;#f
 ;(number? 76) ;#t
 
-(define no-nums
-  (lambda (lat)
+;(define no-nums
+;  (lambda (lat)
+;    (cond
+;      ((null? lat) '())
+;      ((number? (car lat)) (no-nums (cdr lat)))
+;      (else (cons (car lat)
+;                  (no-nums (cdr lat)))))))
+;(define lat '(5 pears 6 prunes 9 dates))
+;(no-nums lat) ;(pears prunes dates)
+;
+;;pg 78
+;(define all-nums
+;  (lambda (lat)
+;    (cond
+;      ((null? lat) '())
+;      ((not (number? (car lat))) (all-nums (cdr lat)))
+;      (else (cons (car lat)
+;                  (all-nums (cdr lat)))))))
+;
+;(all-nums lat) ;(5 6 9)
+
+(define eqan?
+  (lambda (a1 a2)
     (cond
-      ((null? lat) '())
-      ((number? (car lat)) (no-nums (cdr lat)))
-      (else (cons (car lat)
-                  (no-nums (cdr lat)))))))
-(define lat '(5 pears 6 prunes 9 dates))
-(no-nums lat) ;(pears prunes dates)
+      ((and (number? a1) (number? a2))
+       (eq a1 a2))
+      ((and (not (number? a1)) (not (number? a2))
+            (eq? a1 a2)))
+      (else #f))))
 
-;pg 78
-
-(define all-nums
-  (lambda (lat)
-    (cond
-      ((null? lat) '())
-      ((not (number? (car lat))) (all-nums (cdr lat)))
-      (else (cons (car lat)
-                  (all-nums (cdr lat)))))))
-
-(all-nums lat) ;(5 6 9)
-
+(eqan? 5 5) ;#t
+(eqan? 5 6) ;#f
+(eqan? 6 5) ;#f
+(eqan? 'hi 'hi) ;#t
+(eqan? 'hi 'bye) ;#f
+(eqan? 'hi 5) ;#f
+(eqan? 5 'hi) ;#f
+(eqan? 5 '5) ;#t
+(eqan? 5 "5") ;#f
+(eqan? "5" 5) ;#f
