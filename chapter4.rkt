@@ -206,6 +206,18 @@
       ((number? (car lat)) (no-nums (cdr lat)))
       (else (cons (car lat)
                   (no-nums (cdr lat)))))))
-
 (define lat '(5 pears 6 prunes 9 dates))
 (no-nums lat) ;(pears prunes dates)
+
+;pg 78
+
+(define all-nums
+  (lambda (lat)
+    (cond
+      ((null? lat) '())
+      ((not (number? (car lat))) (all-nums (cdr lat)))
+      (else (cons (car lat)
+                  (all-nums (cdr lat)))))))
+
+(all-nums lat) ;(5 6 9)
+
