@@ -132,7 +132,7 @@
 ;(lesser 6 6) ;#f
 
 ;pg 74
-(define eq
+(define eq ;=
   (lambda (n m)
     (cond
       ((greater n m) #f)
@@ -240,13 +240,39 @@
 ;(eqan? 5 "5") ;#f
 ;(eqan? "5" 5) ;#f
 
-(define occur
-  (lambda (a lat)
-    (cond
-      ((null? lat) 0)
-      ((eq? a (car lat))
-       (add1 (occur a (cdr lat))))
-      (else (occur a (cdr lat))))))
+;(define occur
+;  (lambda (a lat)
+;    (cond
+;      ((null? lat) 0)
+;      ((eq? a (car lat))
+;       (add1 (occur a (cdr lat))))
+;      (else (occur a (cdr lat))))))
+;
+;(define lat '(hi bye hi))
+;
+;(= 2 (occur 'hi lat))
 
-(define lat '(hi bye hi))
-(occur 'hi lat) ;2
+;pg 79
+(define one?
+  (lambda (n)
+    (zero? (sub1 n))))
+;if not number #f
+;
+;(eq? (one? 1) #t)
+;(eq? (one? 2) #f)
+
+;(define zero
+;  (lambda (n)
+;    (eq 0 n)))
+;(eq? (zero 0) #t)
+;(eq? (zero 1) #f)
+
+(define rempick
+  (lambda (n lat)
+    (cond
+      ((one? n) (cdr lat))
+      (else (cons (car lat)
+                  (rempick (sub1 n) (cdr lat)))))))
+
+(define lat '(lemon meringue salty pie))
+(rempick 3 lat) ;(lemon meringue pie)
