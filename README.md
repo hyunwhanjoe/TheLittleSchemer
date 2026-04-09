@@ -9,3 +9,5 @@ LISP is worth learning for a different reason — the profound enlightenment exp
 Yes, that was the big revelation to me when I was in graduate school—when I finally understood that the half page of code on the bottom of page 13 of the Lisp 1.5 manual was Lisp in itself. These were “Maxwell’s Equations of Software!” This is the whole world of programming in a few lines that I can put my hand over. - [Alan Kay](https://queue.acm.org/detail.cfm?id=1039523)  
 
 The five languages that Eric Raymond recommends to hackers fall at various points on the power continuum. Where they fall relative to one another is a sensitive topic. What I will say is that I think Lisp is at the top. And to support this claim I'll tell you about one of the things I find missing when I look at the other four languages. How can you get anything done in them, I think, without macros? - [Paul Graham](https://www.paulgraham.com/avg.html)
+
+If C is the closest language to modeling how computers work, Lisp is the closest to modeling how computation works. - [Steve Yegge](https://sites.google.com/site/steveyegge2/tour-de-babel)
