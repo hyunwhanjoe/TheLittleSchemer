@@ -16,4 +16,6 @@ The reason Scheme (a small, pure dialect of Lisp) gets so much attention in comp
 
 The big deal is that you can write complex Scheme programs that are far smaller than their equivalents in Java or C++. Scheme may be a small language, but the constructs it provides are amazingly powerful.  
 
-If nothing else, Scheme has given me a great deal of insight into how more popular languages work. Languages like Python, Ruby and Groovy are all beginning to incorporate Lisp features (e.g. first-class continuations, first-class closures, maybe even macros at some point), and it helps to understand them in the simplest context of Scheme before trying to use them in more complex languages. - [Steve Yegge](https://sites.google.com/site/steveyegge2/ten-challenges)
+If nothing else, Scheme has given me a great deal of insight into how more popular languages work. Languages like Python, Ruby and Groovy are all beginning to incorporate Lisp features (e.g. first-class continuations, first-class closures, maybe even macros at some point), and it helps to understand them in the simplest context of Scheme before trying to use them in more complex languages. - [Steve Yegge](https://sites.google.com/site/steveyegge2/ten-challenges)  
+
+The most powerful programming language is Lisp. If you don't know Lisp (or its variant, Scheme), you don't know what it means for a programming language to be powerful and elegant. Once you learn Lisp, you will see what is lacking in most other languages. - [Richard Stallman](https://stallman.org/stallman-computing.html)
